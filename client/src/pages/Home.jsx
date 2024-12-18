@@ -7,3 +7,4 @@ export default function Home() {
     </div>
   )
 }
+// mongol db password  to remembr it {zZa1jmfqdYKBB8ds}
