@@ -2,10 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
-mongoose
-.connect(process.env.MONG)
+
+// mongoose.connect(`mongodb+srv://ermiyas:ermiyasp@mern.vmvag.mongodb.net/?retryWrites=true&w=majority&appName=mern`).then(()=>{
+// console.log('connected to mongodb')})
+ 
+mongoose.connect(process.env.MONG)
 .then(()=>{
-  console.log('conected to mongodb')
+  console.log('connected to mongodb');
+
 })
   .catch((err)=>{
     console.log(err)
@@ -13,5 +17,5 @@ mongoose
 
 const app=express();
 app.listen(3000,()=>{
-  console.log ('server is  runing on port 3000 ');
+  console.log ('server is  on port 3000 ');
 });
