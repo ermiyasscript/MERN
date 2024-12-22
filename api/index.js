@@ -19,6 +19,15 @@ app.listen(3000,()=>{
   console.log ('server is  on port 3000 ')
 });
 
-// app.get('/test', (req,res)=>{res.send('hi man')})
+
  app.use('/api/user' ,userRouter);
  app.use('/api/auth' ,authRouter);
+ app.use ((err, req, res, next)=>{
+  const statuscode = err.statuscode || 500;
+  const message =err.message ||'Internal server error';
+  return res.status(statuscode).json({
+    success:false,
+    statuscode,
+    message ,
+  })
+ })
